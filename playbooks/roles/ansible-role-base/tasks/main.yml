@@ -19,11 +19,13 @@
 # Install tools
 - name: Install Base tools
   yum: name={{ item }} state=present
-  with_items: packages_base
+  with_items:
+    - "{{ packages_base }"
 
 - name: Install Extension tools
   yum: name={{ item }} state=present
-  with_items: packages_extension
+  with_items:
+    - "{{ packages_extension }}"
   when: packages_extension
 
 # tuneservice
