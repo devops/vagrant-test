@@ -1,0 +1,20 @@
+---
+# file: roles/base/defaults/main.yml
+host_name: localhost
+
+packages_base:
+  - wget
+  - lsof
+  - sysstat
+  - dstat
+  - openssh-clients
+
+packages_extension: []
+
+base_selinux_disabled: false
+
+# nameserver
+base_nameserver_search: []
+base_nameserver_servers:
+  - 114.114.114.114
+  - 8.8.8.8

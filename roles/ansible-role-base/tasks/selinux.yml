@@ -1,0 +1,11 @@
+---
+# file: roles/base/tasks/selinux.yml
+# Disabled SELinux
+
+- name: Install libselinux-python
+  yum: name=libselinux-python state=present
+  tags: selinux_disabled
+
+- name: Disabled SELinux
+  selinux: state=disabled
+  tags: selinux_disabled

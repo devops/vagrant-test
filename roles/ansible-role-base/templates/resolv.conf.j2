@@ -1,0 +1,6 @@
+{% if base_nameserver_search %}
+search {{ base_nameserver_search }}
+{% endif %}
+{% for nameserver in base_nameserver_servers %}
+nameserver {{ nameserver }}
+{% endfor %}

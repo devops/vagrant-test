@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: z@zstack.net
+  description: System base configure for RedHat/CentOS.
+  company: ""
+  license: license (BSD, MIT)
+  min_ansible_version: 1.6
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  categories:
+  - system
+dependencies: []

@@ -1,0 +1,14 @@
+---
+# file: roles/base/vars/RedHat.yml
+service_redhat6:
+  - ip6tables
+  - netfs
+  - postfix
+  - mdmonitor
+  - iscsi
+  - iscsid
+
+service_redhat7:
+  - microcode
+  - postfix
+  - NetworkManager

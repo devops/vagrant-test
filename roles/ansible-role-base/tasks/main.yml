@@ -1,0 +1,31 @@
+---
+# file: roles/base/tasks/main.yml
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+  
+# Disabled SELinux
+- include: selinux.yml
+  when: base_selinux_disabled
+
+# Configure nameserver
+- name: Configure nameserver
+  template: src=resolv.conf.j2 dest=/etc/resolv.conf
+  tags: nameserver
+
+# Configure hostname
+- name: Configure hostname
+  hostname: name={{ host_name }}
+
+# Install tools
+- name: Install Base tools
+  yum: name={{ item }} state=present
+  with_items: packages_base
+
+- name: Install Extension tools
+  yum: name={{ item }} state=present
+  with_items: packages_extension
+  when: packages_extension
+
+# tuneservice
+- include: tuneservice_RedHat.yml
+  when: ansible_os_family == 'RedHat'
