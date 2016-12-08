@@ -20,7 +20,7 @@
 - name: Install Base tools
   yum: name={{ item }} state=present
   with_items:
-    - "{{ packages_base }"
+    - "{{ packages_base }}"
 
 - name: Install Extension tools
   yum: name={{ item }} state=present
